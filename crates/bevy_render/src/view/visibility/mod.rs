@@ -5,7 +5,7 @@ pub use render_layers::*;
 use bevy_app::{CoreStage, Plugin};
 use bevy_asset::{Assets, Handle};
 use bevy_ecs::prelude::*;
-use bevy_hierarchy::Propagate;
+use bevy_hierarchy::{AlwaysPropagate, Propagate};
 use bevy_reflect::std_traits::ReflectDefault;
 use bevy_reflect::Reflect;
 use bevy_transform::components::GlobalTransform;
@@ -54,8 +54,7 @@ impl Visibility {
 impl Propagate for Visibility {
     type Computed = ComputedVisibility;
     type Payload = VisibilityPayload;
-
-    const ALWAYS_PROPAGATE: bool = true;
+    type Kind = AlwaysPropagate;
 
     #[inline]
     fn compute_root(computed: &mut Self::Computed, local: &Self) {

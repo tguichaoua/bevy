@@ -4,13 +4,12 @@ mod transform;
 pub use global_transform::*;
 pub use transform::*;
 
-use bevy_hierarchy::Propagate;
+use bevy_hierarchy::{Propagate, PropagateIfChanged};
 
 impl Propagate for Transform {
     type Computed = GlobalTransform;
     type Payload = GlobalTransform;
-
-    const ALWAYS_PROPAGATE: bool = false;
+    type Kind = PropagateIfChanged;
 
     #[inline]
     fn compute_root(computed: &mut Self::Computed, local: &Self) {

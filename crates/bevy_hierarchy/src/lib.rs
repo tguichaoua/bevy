@@ -1,3 +1,4 @@
+#![feature(generic_associated_types)]
 #![warn(missing_docs)]
 //! `bevy_hierarchy` can be used to define hierarchies of entities.
 //!
