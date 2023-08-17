@@ -17,7 +17,7 @@ pub struct ImageTextureLoader {
     supported_compressed_formats: CompressedImageFormats,
 }
 
-pub(crate) const IMG_FILE_EXTENSIONS: &[&str] = &[
+const FILE_EXTENSIONS: &[&str] = &[
     #[cfg(feature = "basis-universal")]
     "basis",
     #[cfg(feature = "bmp")]
@@ -73,7 +73,7 @@ impl AssetLoader for ImageTextureLoader {
     }
 
     fn extensions(&self) -> &[&str] {
-        IMG_FILE_EXTENSIONS
+        FILE_EXTENSIONS
     }
 }
 
